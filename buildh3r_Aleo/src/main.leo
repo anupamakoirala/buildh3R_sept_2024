@@ -46,7 +46,7 @@ program anu_auction.aleo {
     // In the event of a tie, the first bid is selected.
     transition resolve(first: Bid, second: Bid) -> Bid {
         // Ensure the caller is the auctioneer.
-        assert_eq(self.caller, aleo1f9rwrqkpng27xmuf630xuup479mcyl6etnzwu74v3329jg06zcxq7wktzl);
+        assert_eq(self.caller, aleo17k0mvllx74sdclf50kwvcl53d6twun363hnxtgedl5fh2e8jlgyqksqaul);
         // Resolve the winner of the auction.
         if (first.amount >= second.amount) {
             return first;
@@ -61,7 +61,7 @@ program anu_auction.aleo {
     // Assumes that the function is invoked only after all bids have been resolved.
     transition finish(bid: Bid) -> Bid {
         // Ensure the caller is the auctioneer.
-        assert_eq(self.caller, aleo1f9rwrqkpng27xmuf630xuup479mcyl6etnzwu74v3329jg06zcxq7wktzl);
+        assert_eq(self.caller, aleo17k0mvllx74sdclf50kwvcl53d6twun363hnxtgedl5fh2e8jlgyqksqaul);
         // Return 'is_winner' as 'true' in the winning 'Bid'.
         return Bid {
             owner: bid.bidder,
